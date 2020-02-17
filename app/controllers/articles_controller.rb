@@ -21,9 +21,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    set_article
   end
 
   def edit
+    set_article
   end
 
   def update
@@ -50,6 +52,7 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :description)
+    @article = Article.find(params[:id])
+      params.require(:article).permit(:title, :description, :user)
     end
 end
