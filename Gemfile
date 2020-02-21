@@ -8,6 +8,8 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
+
+# updated to bootstrap-sass 3.4.1 as per github recommendation
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails', '>= 4.3.5'
 gem 'uglifier', '>= 1.3.0'
