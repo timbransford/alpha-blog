@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
+    set_category
   end
 
   private
@@ -34,6 +34,10 @@ class CategoriesController < ApplicationController
         flash[:danger]="Only admins can perform that action"
         redirect_to categories_path
       end
+    end
+
+    def set_category
+      @category = Category.find(params[:id])
     end
 
 end
