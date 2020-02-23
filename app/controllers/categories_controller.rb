@@ -15,13 +15,27 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    set_category
+  end
+  
+  def update
+    set_category
+    if @category.update(category_params)
+      flash[:success] = "Category name was successfully updated"
+      redirect_to category_path(@category)
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
   def show
     set_category
-    @category_articles=@category.articles.paginate(page: params[:page], per_page: 5 )
+    @category_articles=@category.articles.paginate(page: params[:page], per_page: 5)
   end
 
   private
